@@ -3,15 +3,20 @@ package com.engeto.dumplings;
 import java.time.LocalDate;
 
 public class Racer {
+
+    private static int nextId = 0;
+
     String name;
     int numberOfDumplings;
     boolean isFinalResult;
     LocalDate born;
+    int id;
 
     public Racer(String name, LocalDate born, int numberOfDumplings) {
         this.name = name;
         this.born = born;
         this.numberOfDumplings = numberOfDumplings;
+        this.id = nextId++;
     }
 
     public Racer(String name, LocalDate born) {
@@ -57,5 +62,10 @@ public class Racer {
     public int addDumplings(int howMuch) {
         this.numberOfDumplings += howMuch;
         return this.numberOfDumplings;
+    }
+
+    @Override
+    public String toString() {
+        return this.id + ": " + this.name;
     }
 }
