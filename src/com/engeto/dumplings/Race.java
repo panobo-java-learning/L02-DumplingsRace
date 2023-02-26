@@ -1,12 +1,15 @@
 package com.engeto.dumplings;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Race {
-    int year;
-    String title;
-    LocalDate date;
-    Racer winner;
+    private int year;
+    private String title;
+    private LocalDate date;
+    private Racer winner;
+    private ArrayList<Racer> listOfRacers = new ArrayList<>();
 
     public Race(int year, String title, LocalDate date) {
         this.year = year;
@@ -57,5 +60,18 @@ public class Race {
 
     public void setWinner(Racer winner) {
         this.winner = winner;
+    }
+
+    public void addRacer(Racer newRacer) {
+        this.listOfRacers.add(newRacer);
+    }
+
+    public void removeRacer(int racerIndex) {
+        this.listOfRacers.remove(racerIndex);
+    }
+
+    public ArrayList<Racer> getRacers() {
+        ArrayList<Racer> copyOfRacers = new ArrayList<Racer>(this.listOfRacers);
+        return copyOfRacers;
     }
 }
